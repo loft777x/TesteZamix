@@ -3,11 +3,18 @@
 @section('content')
 <div class="container">
     <div class="product-header">
-        <h1 class="product-title">Lista de Produtos Simples</h1>
+        <h1 class="company-name">Kaua</h1>
+        <h2 class="page-title">Lista de Produtos Simples</h2>
         <a href="{{ route('produtos.create') }}" class="btn btn-add">
             <i class="fas fa-plus"></i> Novo Produto Simples
         </a>
     </div>
+
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
     <div class="product-table-container">
         <table class="product-table">
@@ -17,6 +24,7 @@
                     <th>Nome</th>
                     <th>Preço Custo</th>
                     <th>Preço Venda</th>
+                    <th>Quantidade</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,6 +34,7 @@
                     <td>{{ $produto->nome }}</td>
                     <td class="price">R$ {{ number_format($produto->preco_custo, 2, ',', '.') }}</td>
                     <td class="price">R$ {{ number_format($produto->preco_venda, 2, ',', '.') }}</td>
+                    <td>{{ $produto->quantidade }}</td>
                 </tr>
                 @endforeach
             </tbody>

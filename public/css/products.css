@@ -1,32 +1,77 @@
-/* Estilos Gerais */
+/* Estilos gerais */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Cabeçalho */
+.company-name {
+    color: #2c3e50;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    margin-right: 20px;
+}
+
+.page-title {
+    color: #2c3e50;
+    font-size: 20px;
+    margin: 0;
+    flex-grow: 1;
+}
+
 .product-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
     padding: 20px 0;
+    border-bottom: 1px solid #eee;
 }
 
-.product-title {
-    color: #2c3e50;
-    font-size: 28px;
-    margin: 0;
-}
-
-.btn-add {
-    background-color: #3498db;
-    color: white;
+/* Botões */
+.btn-add, .btn-back, .btn-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
     padding: 10px 15px;
     border-radius: 4px;
     text-decoration: none;
+    font-size: 14px;
     transition: background-color 0.3s;
 }
 
+.btn-add {
+    background-color: #2ecc71;
+    color: white;
+    margin-left: auto;
+}
+
 .btn-add:hover {
+    background-color: #27ae60;
+}
+
+.btn-back {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-back:hover {
     background-color: #2980b9;
 }
 
-/* Tabela de Produtos */
+.btn-submit {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #27ae60;
+}
+
+/* Tabela */
 .product-table-container {
     background: white;
     border-radius: 8px;
@@ -64,6 +109,60 @@
     font-weight: bold;
 }
 
+/* Formulário */
+.product-form-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-control:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* Alertas */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .product-header {
@@ -72,8 +171,19 @@
         gap: 15px;
     }
     
+    .btn-add {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
     .product-table {
         display: block;
         overflow-x: auto;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
     }
 }

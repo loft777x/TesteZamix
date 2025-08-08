@@ -37,19 +37,19 @@ class ProdutoSimplesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nome' => 'string',
-            'preco_custo' => 'numeric',
-            'preco_venda' => 'numeric'
+            'nome' => 'required|string|max:255',
+            'preco_custo' => 'required|numeric|min:0',
+            'preco_venda' => 'required|numeric|min:0',
+            'quantidade' => 'required|integer|min:0'
         ]);
 
-        ProdutoSimples::create([
-            'nome' => $request->nome,
-            'preco_custo' => $request->preco_custo,
-            'preco_venda' => $request->preco_venda
-        ]);
-    
-        return redirect()->route('produtos.index')->with('success', 'Produto cadastrado!');
+        ProdutoSimples::create($request->all());
+
+        return redirect()->route('produtos.index')
+                         ->with('success', 'Produto cadastrado com sucesso!');
     }
+
+
     /**
      * Display the specified resource.
      *
