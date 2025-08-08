@@ -1,36 +1,97 @@
 <?php
 
-namespace App\Models;
+namespace App\Http\Controllers;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\ProdutoSimples;
+use Illuminate\Http\Request;
 
-class ProdutoSimples extends Model
+class ProdutoSimplesController extends Controller
 {
-    protected $table = 'produto_simples';
-    
-    protected $fillable = [
-        'nome',
-        'preco_custo',
-        'preco_venda',
-        'quantidade'
-    ];
-
-    // Correção: Definir corretamente a relação com ProductHistory
-    public function historico(): HasMany
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        return $this->hasMany(ProductHistory::class, 'product_id');
+        $produtos = ProdutoSimples::all();
+        return view('produtos.index', compact('produtos'));
     }
 
-    // Correção: Definir corretamente a relação com ProdutoComposto
-    public function composicaoProdutos(): BelongsToMany 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        return $this->belongsToMany(
-            ProdutoComposto::class, 
-            'produto_composto_itens', 
-            'produto_simples_id', 
-            'produto_composto_id'
-        );
+        return view('produtos.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nome' => 'required|string|max:255',
+            'preco_custo' => 'required|numeric|min:0',
+            'preco_venda' => 'required|numeric|min:0',
+            'quantidade' => 'required|integer|min:0'
+        ]);
+
+        ProdutoSimples::create($request->all());
+
+        return redirect()->route('produtos.index')
+                         ->with('success', 'Produto cadastrado com sucesso!');
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\ProdutoSimples  $produtoSimples
+     * @return \Illuminate\Http\Response
+     */
+    public function show(ProdutoSimples $produtoSimples)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\ProdutoSimples  $produtoSimples
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(ProdutoSimples $produtoSimples)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\ProdutoSimples  $produtoSimples
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, ProdutoSimples $produtoSimples)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\ProdutoSimples  $produtoSimples
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(ProdutoSimples $produtoSimples)
+    {
+        //
     }
 }
