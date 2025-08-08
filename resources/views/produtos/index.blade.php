@@ -2,7 +2,16 @@
 
 @section('content')
 <div class="container">
-    <h1>Produtos Simples</h1>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Products</h1>
+        <div class="d-flex align-items-center">
+            <span class="text-muted me-2">Laravel</span>
+            <span>Kauã</span>
+        </div>
+    </div>
 
-    <a href="{{ route('produtos.create') }}" class="btn btn-primary mb-3">Novo Produto</a>
-
+    @foreach($produtos as $produto)
+        <p>{{ $produto->nome }}</p>
+    @endforeach
+</div>
+@endsection
