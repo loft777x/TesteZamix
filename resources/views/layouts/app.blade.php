@@ -20,6 +20,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
+    @if(request()->is('produtos*'))
+        <link href="{{ asset('css/products.css') }}" rel="stylesheet">
+    @endif
+
 </head>
 <body>
     <div id="app">

@@ -25,6 +25,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/produtos', [ProdutoSimplesController::class, 'index'])->name('produtos.index');
+Route::get('/produtos/produto_simples', [ProdutoSimplesController::class, 'index'])->name('produtos.index');
 
+Route::get('/produtos/produto_simples/cadastrar', [ProdutoSimplesController::class, 'create'])->name('produtos.create');
 
+Route::post('/produtos/produto_simples', [ProdutoSimplesController::class, 'store'])->name('produtos.store');

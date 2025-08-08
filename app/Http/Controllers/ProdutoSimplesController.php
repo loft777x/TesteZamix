@@ -25,7 +25,7 @@ class ProdutoSimplesController extends Controller
      */
     public function create()
     {
-        //
+        return view('produtos.create');
     }
 
     /**
@@ -36,9 +36,20 @@ class ProdutoSimplesController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'nome' => 'string',
+            'preco_custo' => 'numeric',
+            'preco_venda' => 'numeric'
+        ]);
 
+        ProdutoSimples::create([
+            'nome' => $request->nome,
+            'preco_custo' => $request->preco_custo,
+            'preco_venda' => $request->preco_venda
+        ]);
+    
+        return redirect()->route('produtos.index')->with('success', 'Produto cadastrado!');
+    }
     /**
      * Display the specified resource.
      *
