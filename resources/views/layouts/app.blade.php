@@ -22,6 +22,7 @@
     
     @if(request()->is('produtos*'))
         <link href="{{ asset('css/products.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/products_composto.css') }}" rel="stylesheet">
     @endif
 
 </head>
