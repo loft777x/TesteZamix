@@ -14,7 +14,6 @@ class ProdutoComposto extends Model
         return $this->hasMany('App\ProdutoCompostoItem', 'produto_composto_id');
     }
 
-    // Calcula o preço de venda somando os preços dos produtos simples
     public function getPrecoVendaAttribute()
     {
         return $this->itens->sum(function ($item) {

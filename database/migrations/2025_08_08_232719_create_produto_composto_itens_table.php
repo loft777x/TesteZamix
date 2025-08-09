@@ -18,10 +18,6 @@ class CreateProdutoCompostoItensTable extends Migration
         $table->unsignedInteger('produto_composto_id');
         $table->unsignedInteger('produto_simples_id');
         
-        // Remova esta linha se não quiser timestamps:
-        // $table->timestamps();
-        
-        // Mantenha as chaves estrangeiras
         $table->foreign('produto_composto_id')->references('id')->on('produto_composto')->onDelete('cascade');
         $table->foreign('produto_simples_id')->references('id')->on('produto_simples')->onDelete('cascade');
     });
