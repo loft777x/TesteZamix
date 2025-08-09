@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Projeto Zamix</title>
+        <title>Projeto</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -15,8 +15,8 @@
             html, body {
                 background-color: #fff;
                 color: #3498db;
-                font-weight: 700;
                 font-family: 'Raleway', sans-serif;
+                font-weight: 700;
                 height: 100vh;
                 margin: 0;
             }
@@ -53,7 +53,7 @@
                 color: #000000;
                 padding: 0 25px;
                 font-size: 12px;
-                font-weight: 700;
+                font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
@@ -72,7 +72,7 @@
                         <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Registrar</a>
+                        <a href="{{ route('register') }}">Registro</a>
                     @endauth
                 </div>
             @endif

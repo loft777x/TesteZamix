@@ -15,12 +15,12 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('produtos')->group(function () {
-    Route::get('/produto_simples', [ProdutoSimplesController::class, 'index'])->name('produtos.index');
-    Route::get('/produto_simples/cadastrar', [ProdutoSimplesController::class, 'create'])->name('produtos.create');
-    Route::post('/produto_simples', [ProdutoSimplesController::class, 'store'])->name('produtos.store');
-    Route::patch('/produto_simples/{id}/quantidade', [ProdutoSimplesController::class, 'updateQuantity'])->name('produtos.updateQuantity');
-    Route::get('/produto_composto', [ProdutoCompostoController::class, 'index'])->name('produtos-compostos.index');
-    Route::get('/produto_composto/cadastrar', [ProdutoCompostoController::class, 'create'])->name('produtos-compostos.create');
-    Route::post('/produto_composto', [ProdutoCompostoController::class, 'store'])->name('produtos-compostos.store');
-    Route::get('/produto_composto/{id}', [ProdutoCompostoController::class, 'show'])->name('produtos-compostos.show');
+    Route::get('/produtos_simples', [ProdutoSimplesController::class, 'index'])->name('produtos.index');
+    Route::get('/produtos_simples/cadastrar', [ProdutoSimplesController::class, 'create'])->name('produtos.create');
+    Route::post('/produtos_simples', [ProdutoSimplesController::class, 'store'])->name('produtos.store');
+    Route::patch('/produtos_simples/{id}/quantidade', [ProdutoSimplesController::class, 'updateQuantity'])->name('produtos.updateQuantity');
+
+    Route::get('/produtos_compostos', [ProdutoCompostoController::class, 'index'])->name('produtos-compostos.index');
+    Route::get('/produtos_compostos/cadastrar', [ProdutoCompostoController::class, 'create'])->name('produtos-compostos.create');
+    Route::post('/produtos_compostos', [ProdutoCompostoController::class, 'store'])->name('produtos-compostos.store');
 });

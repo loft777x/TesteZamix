@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -13,10 +14,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    Você logou!
+                    Selecione o campo que deseja acessar!
                 </div>
             </div>
+            <nav class=navbar_produtos> 
+                    <a href="/produtos/produtos_simples">Produtos Simples</a>
+                    <a href="/produtos/produtos_compostos">Produtos Compostos</a>
+            </nav
         </div>
     </div>
 </div>

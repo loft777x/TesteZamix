@@ -1,0 +1,18 @@
+.navbar_produtos {
+  display: flex;
+  justify-content: center; 
+  gap: 10px;               
+  padding-top: 20px;
+}
+
+.navbar_produtos a {
+  color: #212529;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+  padding: 0 5px; 
+}
+
+.navbar_produtos a:hover {
+  transform: scale(1.2);
+}
