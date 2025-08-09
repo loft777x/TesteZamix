@@ -11,13 +11,13 @@ class ProdutoCompostoController extends Controller
     public function index()
     {
         $produtos = ProdutoComposto::with('itens.produtoSimples')->get();
-        return view('produtos_compostos.index', compact('produtos')); // Nome da view corrigido
+        return view('produtos_compostos.index', compact('produtos'));
     }
 
     public function create()
     {
         $produtosSimples = ProdutoSimples::all();
-        return view('produtos_compostos.create', compact('produtosSimples')); // Nome da view corrigido
+        return view('produtos_compostos.create', compact('produtosSimples'));
     }
 
     public function store(Request $request)

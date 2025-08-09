@@ -16,7 +16,7 @@ class CreateProdutoCompostoTable extends Migration
     Schema::create('produto_composto', function (Blueprint $table) {
         $table->increments('id');
         $table->string('nome');
-        $table->decimal('preco_venda', 8, 2)->default(0); // Será calculado automaticamente
+        $table->decimal('preco_venda', 8, 2)->default(0);
         $table->timestamps();
     });
 }
